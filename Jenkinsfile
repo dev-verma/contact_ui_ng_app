@@ -4,21 +4,21 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-               git branch: 'main', url: 'https://github.com/ashokitschool/contact_ui_ng_app.git'
+               git branch: 'main', url: 'https://github.com/dev-verma/contact_ui_ng_app.git'
             }
         }
         
         stage('Docker Image'){
             steps{
-                sh 'docker build -t ashokit/contact_ui_app .'
+                sh 'docker build -t vermakqr/contact_ui_app .'
             }
         }
         
        stage('Docker Image push'){
             steps{
             withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
-                   sh 'docker login -u ashokit -p ${docker_pwd}'
-                   sh 'docker push ashokit/contact_ui_app'
+                   sh 'docker login -u vermakqr -p ${docker_pwd}'
+                   sh 'docker push vermakqr/contact_ui_app'
             }
             }
         }

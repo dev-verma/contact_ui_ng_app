@@ -16,7 +16,7 @@ spec:
   spec:
     containers:
     - name: contactuicontainer
-      image: ashokit/contact_ui_app
+      image: vermakqr/contact_ui_app
       imagePullPolicy: Always
       ports:
       - containerPort: 80
